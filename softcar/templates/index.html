@@ -1,0 +1,96 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div style="background-image: url('https://thumbs.gfycat.com/MeaslyWarmGermanshorthairedpointer-size_restricted.gif');background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+{% block title %}
+
+{% endblock %}
+{% block navbar%}
+{% endblock %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+   <br> <br><br><br><br><br>
+
+
+    <div class="container">
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-5">
+
+
+                <div class="card" style="width: 16rem;">
+              <div class="card-body">
+                
+                <div class="row">
+      
+            <div class="form-group">
+                <label for="username">Nombre de usuario:</label>
+                <div class="container">
+                </div>
+                <input class="form-control" type="text" name="username">
+           </div>
+      
+    </div>
+    <div class="row">
+       
+            <div class="form-group">
+                <label for="username">Contraseña:</label>
+                <input class="form-control" type="password" name="password">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Ayuda
+</button>  
+
+             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ayuda</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        El nombre de usuario es el RUT sin digito verificador y la contraseña el numero de celular
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <button type="submit" class="btn btn-warning">Iniciar sesion <i class='fas fa-car'></i> </button>
+                
+           </div>
+           
+      
+    </div>
+
+
+              </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+
+    
+
+<br> <br><br><br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
+
+
+     
+</form>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}

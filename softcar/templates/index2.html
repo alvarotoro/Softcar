@@ -1,0 +1,17 @@
+
+{% if user.is_authenticated %}
+{% block title %}
+
+{% endblock %}
+{% block navbar%}
+{% endblock %}
+{% block content %}
+
+  <p>Esta logeado con una cuenta correctamente</p>
+
+{% endblock %}
+{% else %}
+ <p>Por favor iniciar sesion antes de ingresar</p>
+  
+
+{% endif %} 

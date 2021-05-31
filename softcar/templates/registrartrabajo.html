@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+  <title>Softcar</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.4/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark sticky-top bg-warning flex-md-nowrap p-0">
+    <a class="bg-success col-sm-3 col-md-2 mr-0"></a>
+    <h1 class="bold" style="font-family:sans-serif;color:black;"> Softcar</h1>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" style="color:black;" href="/accounts/profile/logout_view" >(Cerrar sesion)</a>
+      </li>
+    </ul>
+  </nav>
+
+   <main role="main" class="col-md-11">
+
+   <div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+          <a href="/accounts/profile/"style="font-size:24px;background:white ">Volver atras <i class="fa fa-home"></i></a>
+        </div>
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
+  </div>
+   
+  <div class="container">
+    <div class="row">
+        <div class="col-1">
+          <form action="/registrartrabajo2" method="get" >
+        </div>
+        <div class="col-11">  
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+      Error : Porfavor verifique si los datos ingresados son validos
+    </div>
+    {% endif %}
+    <div class="container">
+
+    <div class="container" style="width: 85%;text-align: center;">
+      <div class="card-header" style="font-family:sans-serif;color:black;font-size:150%;">Registrar trabajo</div>
+      <div class="card">
+  <div class="card-body">
+
+    <div class="row">
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Id</h2>
+        </div>
+        <div class="col-sm-3">
+
+
+                  <div class="form-check">
+    <input class="form-control" type="text" name="idtrabajo" placeholder="Id del trabajo">
+  </div>
+
+        </div>
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:147%;" >Descripcion</h2>
+        </div>
+        <div class="col-sm-4">
+
+
+
+                  <div class="form-group">
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="descripcion" rows="3"></textarea>
+  </div>
+
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Fecha de inicio</h2>
+        </div>
+        <div class="col-sm-3">
+
+
+                  <input type="date" id="calendar1" name="calend1" onchange="calend1()"
+          value="{{ fecha }}"
+          min="2000-01-01" max="{{ fecha2 }}">
+
+         <br />
+        </div>
+
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Fecha final</h2>
+        </div>
+        <div class="col-sm-4">
+
+
+                  <input type="date" id="calendar1" name="calend2" onchange="calend2()"
+          value="{{ fecha }}"
+          min="2000-01-01" max="{{ fecha2 }}">
+
+         <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Estado</h2>
+        </div>
+        <div class="col-sm-3">
+
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="estado">
+                    {% for dato in datos %}
+                       <option value="{{ dato.0 }}">{{ dato.1}}</option>     
+                    {% endfor %}
+                   
+                  </select>
+
+         <br />
+        </div>
+
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Vehiculo</h2>
+        </div>
+        <div class="col-sm-4">
+
+
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="vehiculo">
+                    {% for dato in datos2 %}
+                       <option value="{{ dato.0 }}">{{ dato.0}} / {{dato.1}} </option>     
+                    {% endfor %}
+                   
+                  </select>
+
+         <br />
+         <br />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Repuesto</h2>
+        </div>
+        <div class="col-sm-3">
+
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="repuesto">
+                    {% for dato in datos3 %}
+                       <option value="{{ dato.0 }}">{{dato.2}} / {{ dato.1 }} </option>     
+                    {% endfor %}
+                   
+                  </select>
+
+         <br />
+        </div>
+
+        <div class="col-sm-2">
+          <h2 style="font-family:sans-serif;color:black;font-size:150%;" >Cantidad</h2>
+        </div>
+        <div class="col-sm-4">
+
+
+                  <input type="number" id="cantidadrepuestos" name="cantidad"
+                      min="0" max="999">
+
+         <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-warning">Crear trabajo</button>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+ 
+
+    </div>
+</div>
+
+
+    </form>
+    </main>
+    <div class='col-md-1'></div>
+  </div>
+      <footer align="center">
+</footer>
+  </div>
+
+</body>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+<!-- Graphs -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+
+</html>
